@@ -11,8 +11,6 @@ namespace TIKSN.SmallBasicWorkflow.Lexicographer
             {
                 Parser parser = new Parser();
                 parser.Parse(reader);
-
-                var x = parser.SymbolTable;
             }
         }
     }
