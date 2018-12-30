@@ -9,8 +9,14 @@ namespace TIKSN.SmallBasicWorkflow.Lexicographer
         {
             using (var reader = File.OpenText(args[0]))
             {
-                Parser parser = new Parser();
-                parser.Parse(reader);
+                var file = args[0];
+
+                ModuleCompiler compiler = new ModuleCompiler();
+                Path.GetDirectoryName(file);
+                string withoutExtension = Path.GetFileNameWithoutExtension(file);
+                compiler.Build((TextReader)reader, withoutExtension, Directory.GetCurrentDirectory());
+
+                var e = compiler.Parser.Errors;
             }
         }
     }
